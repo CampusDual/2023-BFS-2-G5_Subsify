@@ -1,40 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<JdbcEntitySetup xmlns="http://www.ontimize.com/schema/jdbc"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
-	catalog="" schema="${mainschema}" table="usr_user" datasource="mainDataSource"
-	sqlhandler="dbSQLStatementHandler">
-	<DeleteKeys>
-		<Column>usr_id</Column>
-	</DeleteKeys>
-	<UpdateKeys>
-		<Column>usr_id</Column>
-	</UpdateKeys>
-	<GeneratedKey>usr_id</GeneratedKey>
-	<Queries>
-		<Query id="default">
-			<Sentence>
+<JdbcEntitySetup
+    xmlns="http://www.ontimize.com/schema/jdbc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
+    catalog="" schema="${mainschema}" table="TUSER"
+    datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
+    <DeleteKeys>
+        <Column>USER_</Column>
+    </DeleteKeys>
+    <UpdateKeys>
+        <Column>USER_</Column>
+    </UpdateKeys>
+    <Queries>
+        <Query id="default">
+            <ValidColumns>
+                <Column>USER_</Column>
+                <Column>PASSWORD</Column>
+                <Column>NAME</Column>
+                <Column>SURNAME</Column>
+                <Column>EMAIL</Column>
+                <Column>NIF</Column>
+                <Column>USERBLOCKED</Column>
+                <Column>LASTPASSWORDUPDATE</Column>
+                <Column>FIRSTLOGIN</Column>
+            </ValidColumns>
+            <Sentence>
                 <![CDATA[
                     SELECT
                         #COLUMNS#
                     FROM
-                        ${mainschema}.usr_user
+                        ${mainschema}.TUSER
                     #WHERE#
-                    #ORDER#
                 ]]>
-			</Sentence>
-		</Query>
-		<Query id="login">
-			<Sentence>
+            </Sentence>
+
+        </Query>    
+        <Query id="login">
+            <ValidColumns>
+                <Column>USER_</Column>
+                <Column>PASSWORD</Column>
+                <Column>NAME</Column>
+                <Column>SURNAME</Column>
+                <Column>EMAIL</Column>
+                <Column>NIF</Column>
+                <Column>USERBLOCKED</Column>
+                <Column>LASTPASSWORDUPDATE</Column>
+                <Column>FIRSTLOGIN</Column>
+            </ValidColumns>
+            <Sentence>
+                <![CDATA[
+                    SELECT 
+                        #COLUMNS#
+                    FROM                        
+                        ${mainschema}.TUSER
+                    #WHERE#
+                ]]>
+            </Sentence>
+        </Query>
+        <Query id="query_users_to_share">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="user_" prefix="tu"/>
+                <AmbiguousColumn name="id_rolename" prefix="r"/>
+            </AmbiguousColumns>
+
+            <Sentence>
                 <![CDATA[
                     SELECT
-                        #COLUMNS#, usr_down_date
+                        #COLUMNS#
                     FROM
-                        ${mainschema}.usr_user
+                    TUSER TU
+                    INNER JOIN  TUSER_ROLE TUR ON TU.USER_=TUR.USER_
+                    INNER JOIN TROLE R ON R.ID_ROLENAME=TUR.ID_ROLENAME
                     #WHERE#
-                    #ORDER#
                 ]]>
-			</Sentence>
-		</Query>
-	</Queries>
+            </Sentence>
+        </Query>
+
+    </Queries>
+
 </JdbcEntitySetup>

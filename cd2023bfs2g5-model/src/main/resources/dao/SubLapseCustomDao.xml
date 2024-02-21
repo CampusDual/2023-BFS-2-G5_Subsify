@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JdbcEntitySetup
+        xmlns="http://www.ontimize.com/schema/jdbc"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
+        catalog="" schema="${mainschema}" table="SUB_LAPSE_CUSTOM"
+        datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
+
+    <DeleteKeys>
+        <Column>SLC_ID</Column>
+    </DeleteKeys>
+    <UpdateKeys>
+        <Column>SLC_ID</Column>
+    </UpdateKeys>
+    <GeneratedKey>slc_id</GeneratedKey>
+    <Queries>
+        <Query id="custom_sub_lapse_query">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="subs_id" prefix="s"/>
+            </AmbiguousColumns>
+            <Sentence>
+                <![CDATA[
+                select #COLUMNS#
+                from sub_lapse_custom slc
+                inner join "subscription" s on slc.subs_id = s.subs_id
+                inner join plan_price pp on pp.plan_price_id = s.plan_price_id
+                #WHERE#;
+                 ]]>
+            </Sentence>
+        </Query>
+        <Query id="custom_price_query">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="subs_id" prefix="s"/>
+            </AmbiguousColumns>
+            <Sentence>
+                <![CDATA[
+                select #COLUMNS#
+                from sub_lapse_custom slc
+                inner join "subscription" s on slc.subs_id = s.subs_id
+                #WHERE#
+                order by slc.slc_start desc;
+                 ]]>
+            </Sentence>
+        </Query>
+    </Queries>
+</JdbcEntitySetup>

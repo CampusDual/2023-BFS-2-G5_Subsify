@@ -1,0 +1,73 @@
+{
+  "menu": [
+    {
+      "attr": "categories",
+      "visible": false,
+      "enabled": false
+    },
+    {
+      "attr": "platforms",
+      "visible": false,
+      "enabled": false
+    },
+    {
+      "attr": "subscriptions",
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "attr": "charts",
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "attr": "plans",
+      "visible": false,
+      "enabled": false
+    },
+    {
+      "attr": "custom-platform",
+      "visible": false,
+      "enabled": false
+    }
+
+  ],
+  "routes": [
+    {
+      "permissionId": "categories-table-route",
+      "enabled": false
+    },
+    {
+      "permissionId": "platforms-table-route",
+      "enabled": false
+    },
+    {
+      "permissionId": "custom-platform-table-route",
+      "enabled": false
+    },
+    {
+      "permissionId": "subscriptions-table-route",
+      "enabled": true
+    },
+    {
+      "permissionId": "charts-table-route",
+      "enabled": true
+    },
+    {
+      "permissionId": "subscription-home-route",
+      "enabled": true
+    },
+    {
+      "permissionId": "plans-table-route",
+      "enabled": false
+    },
+    {
+      "permissionId": "home-route",
+      "enabled": true
+    },
+    {
+      "permissionId": "user-home-route",
+      "enabled": true
+    }
+  ]
+}

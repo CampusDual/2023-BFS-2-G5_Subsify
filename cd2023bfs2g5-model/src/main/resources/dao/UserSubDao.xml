@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JdbcEntitySetup
+        xmlns="http://www.ontimize.com/schema/jdbc"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
+        catalog="" schema="${mainschema}" table="USER_SUB"
+        datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
+
+    <DeleteKeys>
+        <Column>USER_SUB_ID</Column>
+    </DeleteKeys>
+    <UpdateKeys>
+        <Column>USER_SUB_ID</Column>
+    </UpdateKeys>
+    <GeneratedKey>user_sub_id</GeneratedKey>
+    <Queries>
+        <Query id="default">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="subs_id" prefix="s"/>
+            </AmbiguousColumns>
+            <Sentence>
+                <![CDATA[
+                    select #COLUMNS#
+                    from sub_lapse sl
+                    inner join "subscription" s on s.subs_id = sl.subs_id
+                    inner join user_sub us on us.subs_id = s.subs_id
+                    #WHERE#
+                ]]>
+            </Sentence>
+        </Query>
+    </Queries>
+</JdbcEntitySetup>

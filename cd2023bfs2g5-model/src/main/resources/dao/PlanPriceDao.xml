@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JdbcEntitySetup
+        xmlns="http://www.ontimize.com/schema/jdbc"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
+        catalog="" schema="${mainschema}" table="PLAN_PRICE"
+        datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
+
+    <DeleteKeys>
+        <Column>PLAN_PRICE_ID</Column>
+    </DeleteKeys>
+    <UpdateKeys>
+        <Column>PLAN_PRICE_ID</Column>
+    </UpdateKeys>
+    <GeneratedKey>plan_price_id</GeneratedKey>
+    <Queries>
+        <Query id="freq_by_plan_price">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="plan_id" prefix="p"/>
+                <AmbiguousColumn name="fr_id" prefix="f"/>
+                <AmbiguousColumn name="platf_id" prefix="pl"/>
+                <AmbiguousColumn name="cat_id" prefix="c"/>
+            </AmbiguousColumns>
+            <Sentence>
+                <![CDATA[
+                SELECT #COLUMNS#
+                from plan_price pp
+                inner join plan p on pp.plan_id = p.plan_id
+                inner join frequency f on f.fr_id = p.fr_id
+                inner join platform pl on pl.platf_id=p.platf_id
+                inner join category c on c.cat_id=pl.cat_id
+                #WHERE#;
+                 ]]>
+            </Sentence>
+        </Query>
+        <Query id = "order_by_end_date_query">
+            <Sentence>
+                <![CDATA[
+                SELECT #COLUMNS#
+                from plan_price
+                #WHERE#
+                order by plan_price_start DESC;
+                 ]]>
+            </Sentence>
+        </Query>
+    </Queries>
+</JdbcEntitySetup>
