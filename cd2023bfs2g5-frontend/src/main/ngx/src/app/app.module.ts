@@ -14,6 +14,7 @@ import { CONFIG } from "./app.config";
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from "@angular/material";
 import { MatDialogModule } from '@angular/material/dialog';
 import { AlertDialogComponent } from "./main/alerts/alert-dialog/alert-dialog.component";
+import { AlertsModule } from "./main/alerts/alerts.module";
 
 // Standard providers...
 // Defining custom providers (if needed)...
@@ -25,11 +26,12 @@ export const customProviders: any = [];
     OntimizeWebModule,
     AppRoutingModule,
     MatDialogModule,
+    AlertsModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production,
     }),
   ],
-  declarations: [AppComponent, AlertDialogComponent],
+  declarations: [AppComponent],
   bootstrap: [AppComponent],
   providers: [
     { provide: APP_CONFIG, useValue: CONFIG },
@@ -39,7 +41,7 @@ export const customProviders: any = [];
     },
     ONTIMIZE_PROVIDERS,
     ...customProviders,
-  ], 
+  ],
   entryComponents: [AlertDialogComponent],
 })
 export class AppModule {}
