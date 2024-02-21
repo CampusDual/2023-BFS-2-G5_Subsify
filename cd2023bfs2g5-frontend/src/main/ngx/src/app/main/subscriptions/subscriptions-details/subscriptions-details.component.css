@@ -1,0 +1,40 @@
+p {
+  color: #032a38;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.hide {
+  display: none !important;
+}
+
+.ng-star-inserted {
+  align-items: center !important;
+  place-content: center;
+}
+
+.o-table.share-user-subs {
+  width: 500px;
+  justify-self: center;
+}
+
+.o-table.share-user-subs
+  .o-table-container
+  .o-table.custom-sub-table
+  .o-table-container {
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  column-gap: 5rem;
+  padding: 2 2rem ;
+  height: 100vh ;
+  }
+  

@@ -1,0 +1,17 @@
+div.o-form-content-wrapper {
+  align-items: center !important;
+}
+
+.o-combo {
+  min-width: 100% !important;
+}
+
+.o-form{
+  flex-direction: column-reverse;
+  background-color:#98b9ca !important;
+}
+
+o-text-input {
+  width: 99%;
+}
+

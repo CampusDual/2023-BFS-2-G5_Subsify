@@ -1,0 +1,84 @@
+.card-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  row-gap: 2rem;
+}
+
+.mat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 50px 50px 0 !important;
+  width: 300px;
+  height: 340px;
+  margin: 0 auto !important;
+  cursor: default !important;
+  padding-bottom: 50px;
+}
+/*
+.image-container {
+  width: 10px;
+  height: 10px;
+  overflow: hidden;
+}
+
+*/
+.img2 {
+  width: 140px;
+  height: 140px;
+}
+
+.mat-card-content div {
+  text-align: center;
+  margin: 8px 0;
+}
+
+.mat-raised-button {
+  color: white !important;
+  background-color: rgb(223, 42, 42) !important;
+  word-spacing: 10px;
+}
+
+.cancel-message {
+  color: rgb(223, 42, 42);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.material-symbols-outlined {
+  color: rgb(223, 42, 42);
+  font-size: 2rem;
+}
+
+.decremental-icon {
+  color: rgb(14, 158, 69);
+}
+
+.incremental-price {
+  align-items: center !important;
+  display: flex;
+  justify-content: center;
+  color: rgb(223, 42, 42);
+  padding: 0 0 0 0.5rem !important;
+}
+
+.decremental-price {
+  align-items: center !important;
+  display: flex;
+  justify-content: center;
+  color: rgb(14, 158, 69);
+  padding: 0 0 0 0.5rem !important;
+}
+
+.plan-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.emptyText {
+  color: #032a38;
+  font-size: 1.2rem;
+  width: 100% !important;
+  text-align: center !important;
+}
