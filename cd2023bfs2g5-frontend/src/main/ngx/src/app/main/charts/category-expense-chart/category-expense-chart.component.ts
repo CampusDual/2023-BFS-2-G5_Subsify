@@ -36,7 +36,7 @@ export class CategoryExpenseChartComponent implements OnInit, AfterViewInit {
   @ViewChild("subLapseTable", { static: false }) subLapseTable: OTableComponent;
   @ViewChild("categoryChart", { static: false })
   protected categoryChart: OChartComponent;
-  protected chartParameters: MultiBarChartConfiguration;
+  public chartParameters: MultiBarChartConfiguration;
   private translateServiceSubscription: Subscription;
   protected service: OntimizeService;
   protected d3Locale: any;
@@ -104,7 +104,7 @@ export class CategoryExpenseChartComponent implements OnInit, AfterViewInit {
     this.service.configureService(conf);
   }
 
-  protected getSubLapses(event) {
+  public getSubLapses(event) {
     this.subLpases = event;
     this.processData(this.subLpases);
   }
@@ -216,7 +216,7 @@ export class CategoryExpenseChartComponent implements OnInit, AfterViewInit {
     this.categoryChart.reloadData();
   }
 
-  private filterData() {
+  public filterData() {
     this.catExService.updateDataFiltered(true);
   }
 

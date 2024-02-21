@@ -28,7 +28,7 @@ export class SubscriptionsHomeComponent implements OnInit {
 
   protected platformChart: OChartComponent;
   public chartData;
-  protected chartParameters: DonutChartConfiguration;
+  public chartParameters: DonutChartConfiguration;
   public getMonthlyPrice = getMonthlyPricefunction;
   user_role;
 
